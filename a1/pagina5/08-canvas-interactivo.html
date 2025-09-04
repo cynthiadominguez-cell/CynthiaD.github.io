@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Key Codes</title>
+   <style>
+    body{
+      text-align:center;
+      background-image: url("Back.jpg");
+       background-size: cover;   
+      background-repeat: no-repeat;
+      
+    }
+    canvas{
+        background-color: rgb(255, 255, 255);
+         border-radius: 45px; 
+        
+    }
+    
+     h1 {
+        color:rgb(0, 0, 0);
+        font-size: 20px;
+    }
+    
+     aside {
+        color:rgb(0, 0, 0);
+        font-size: 20px;
+    }
+   </style>
+  </head>
+  <body>
+    <aside>Presiona las flechas del teclado. Tecla B para borrar</aside>
+    <canvas id="canvas" width ="900" height="600"></canvas>
+    
+    <script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        context.font = '40pt Garamond';
+        context.fillStyle = 'purple';
+        //context.fillText('Hello world!', 50, 50, 350, 100);
+//background-color: rgb(255, 184, 205);
+
+        var imagen1 = new Image(); //variable para guardar la imagen
+        imagen1.src ="Emilia1.jpg"; //fuente de donde toma la imagen
+        imagen1.onload = function(){
+            //context.drawImage(imagen2, 50, 50, 300, 500);
+        }
+
+        var imagen2 = new Image(); //variable para guardar la imagen
+        imagen2.src ="Emilia2.jpg"; //fuente de donde toma la imagen
+        imagen2.onload = function(){
+            //context.drawImage(imagen4, 50, 50, 300, 500);
+        }
+
+        var imagen3 = new Image(); //variable para guardar la imagen
+        imagen3.src ="Emilia3.jpg"; //fuente de donde toma la imagen
+        imagen3.onload = function(){
+        //context.drawImage(imagen3, 50, 50, 300, 500);
+        }
+
+        var imagen4 = new Image(); //variable para guardar la imagen
+        imagen4.src ="Emilia4.jpg"; //fuente de donde toma la imagen
+        imagen4.onload = function(){
+        //context.drawImage(imagen3, 50, 50, 300, 500);
+        }
+
+        var imagen5 = new Image(); //variable para guardar la imagen
+        imagen5.src ="Emilia5.jpg"; //fuente de donde toma la imagen
+        imagen5.onload = function(){
+           //context.drawImage(imagen3, 50, 50, 300, 500);
+        }
+
+        context.fillStyle="black";
+        var x = 200;
+        var y = 200;
+        context.fillRect(x,y,100,100);
+        context.fillText('MUEVE EL CUADRITO CON LAS TECLAS DE FLECHAS!', 50, 50, 700, 30);
+        context.fillText('PRECIOINA 1 PARA VER EL PRIMER LIBRO', 50, 550, 700, 30);
+        
+
+      function onKeyboardEvent (event) {
+        switch (event.keyCode) {
+        case 38: //movimiento
+          console.log("up!");
+            context.clearRect(0,0, innerWidth, innerHeight); 
+            y-=5;
+            context.fillRect(x,y,100,100); //aqui se mueve el cuadrito
+           //context.drawImage(imagen, 450, 50, 300, 500); //mantener la imagen
+            context.fillText('MUEVE EL CUADRITO CON LAS TECLAS DE FLECHAS!', 50, 50, 700, 30);
+            context.fillText('PRECIOINA 1 PARA VER EL PRIMER LIBRO', 50, 550, 700, 30);
+          break;
+        case 40:
+          console.log("down!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          y+=5;
+          context.fillRect(x,y,100,100);
+          context.fillText('MUEVE EL CUADRITO CON LAS TECLAS DE FLECHAS!', 50, 50, 700, 30);
+          context.fillText('PRECIOINA 1 PARA VER EL PRIMER LIBRO', 50, 550, 700, 30);
+          break;
+        case 37:
+          console.log("left!");
+             context.clearRect(0,0, innerWidth, innerHeight);
+          x-=5;
+          context.fillRect(x,y,100,100);
+          context.fillText('MUEVE EL CUADRITO CON LAS TECLAS DE FLECHAS!', 50, 50, 700, 30);
+          context.fillText('PRECIOINA 1 PARA VER EL PRIMER LIBRO', 50, 550, 700, 30);
+          break;
+        case 39:
+          console.log("right!");
+             context.clearRect(0,0, innerWidth, innerHeight);
+          x+=5;
+          context.fillRect(x,y,100,100);
+          context.fillText('MUEVE EL CUADRITO CON LAS TECLAS DE FLECHAS!', 50, 50, 700, 30);
+          context.fillText('PRECIOINA 1 PARA VER EL PRIMER LIBRO', 50, 550, 700, 30);
+          break;
+/////////////////////////////////
+        case 49: //movimiento
+          console.log("Numero 1!");
+            context.clearRect(0,0, innerWidth, innerHeight); 
+            context.drawImage(imagen1, 50,50,350,500); //mantener la imagen
+            context.fillText('MIRA EL', 450, 250, 400, 30);
+            context.fillText('PRIMER LIBRO', 450, 300, 400, 30);
+            context.fillText('CONTINUA ', 450, 350, 400, 30);
+            context.fillText('CON TECLA 2 ', 450, 400, 400, 30);
+            
+          break;
+        case 66:
+          console.log("B!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          break;
+///////////////////////////////////////////
+            case 50: //movimiento
+          console.log("Numero 2!");
+            context.clearRect(0,0, innerWidth, innerHeight); 
+            context.drawImage(imagen2, 500,50,325,500); //mantener la imagen
+            context.fillText('MIRA EL', 50, 250, 400, 30);
+            context.fillText('SEGUNDO LIBRO', 50, 300, 400, 30);
+            context.fillText('CONTINUA ', 50, 350, 400, 30);
+            context.fillText('CON TECLA 3 ', 50, 400, 400, 30);
+          break;
+        case 66:
+          console.log("B!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          break;
+
+          //////////////////
+          case 51: //movimiento
+          console.log("Numero 3!");
+            context.clearRect(0,0, innerWidth, innerHeight); 
+            context.drawImage(imagen3, 50,50,308,500); //mantener la imagen
+            context.fillText('MIRA EL', 450, 250, 400, 30);
+            context.fillText('TERCER LIBRO', 450, 300, 400, 30);
+            context.fillText('CONTINUA ', 450, 350, 400, 30);
+            context.fillText('CON TECLA 4 ', 450, 400, 400, 30);
+          break;
+        case 66:
+          console.log("B!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          break;
+
+          ///////////////////////////////
+          case 52: //movimiento
+          console.log("Numero 4!");
+            context.clearRect(0,0, innerWidth, innerHeight); 
+            context.drawImage(imagen4, 550, 50, 300, 500); //mantener la imagen
+            context.fillText('MIRA, DIFERENTE ', 50, 250, 400, 30);
+            context.fillText('PORTADA. ', 50, 300, 400, 30);
+            context.fillText('CONTINUA CON  ', 50, 350, 400, 30);
+            context.fillText('TECLA 5 ', 50, 400, 400, 30);
+          break;
+        case 66:
+          console.log("B!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          break;
+
+        case 53: //movimiento
+          console.log("Numero 5!");
+            context.clearRect(0,0, innerWidth, innerHeight); 
+            context.drawImage(imagen5, 50,50,308,500); //mantener la imagen
+            context.fillText('MIRA ', 450, 150, 400, 30);
+            context.fillText('BARNES & ', 450, 200, 400, 30);
+            context.fillText('NOBLES EDITION ', 450, 250, 400, 30);
+            context.fillText('CON TECLAS 1, 2', 450, 300, 400, 30);
+            context.fillText('3, 4, 5 Y FLECHAS', 450, 350, 400, 30);
+            context.fillText('PUEDES MOVERTE ', 450, 400, 400, 30);
+            context.fillText('A CUALQUIERA DE ', 450, 450, 400, 30);
+            context.fillText('LAS ANTERIORES', 450, 500, 400, 30);
+          break;
+        case 66:
+          console.log("B!");
+          context.clearRect(0,0, innerWidth, innerHeight);
+          break;
+
+          default:
+          console.log(event.keyCode);
+        }
+      }
+
+      window.addEventListener('keydown', onKeyboardEvent, false);
+    };
+    </script>
+  </body>
+</html>
