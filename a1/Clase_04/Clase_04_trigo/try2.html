@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotate to Mouse</title>
+    <style>
+    body{
+      background-color: rgb(255, 0, 76);
+      margin: 0;
+      text-align:center;
+    }
+        canvas{
+        background-color: black;
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="1520" height="650"></canvas>
+    <aside>Move mouse on canvas element.</aside>
+    
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          
+          GATO_01 = new Image ();
+          GATO_01.src = "GATO_01.png"
+          
+          GATO_01.onload = function () {    
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        context.save();
+          
+        var x = 500;
+        var y = 300;
+
+        context.translate(x, y);
+        dx = mouse.x - x,
+        dy = mouse.y - y;
+        var radianes = Math.atan2(dy, dx);
+
+        console.log(radianes);
+        context.rotate(radianes);
+        context.drawImage(GATO_01, -GATO_01.width/2, -GATO_01.height/2);
+        //context.drawImage(Ojos, -Ojos.width/2, -Ojos.height/2);
+        context.restore();
+          
+      }());
+    };
+
+ var GATO_02 = new Image ();
+          GATO_02.src = "GATO_02.png"
+          
+          GATO_02.onload = function () {    
+      (function drawFrame2 () {
+        window.requestAnimationFrame(drawFrame2, canvas);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x2 = 1000;
+        var y2 = 300;
+
+        context.translate(x2, y2);
+        dx2 = mouse.x - x2,
+        dy2 = mouse.y - y2;
+        var radianes = Math.atan2(dy2, dx2);
+
+        console.log(radianes);
+        context.rotate(radianes);
+        context.drawImage(GATO_02, -GATO_02.width/2, -GATO_02.height/2);
+        //context.drawImage(Ojos, -Ojos.width/2, -Ojos.height/2);
+        context.restore();
+          
+      }());
+    };
+
+var Ear_1 = new Image ();
+          Ear_1.src = "Ear_1.png"
+          
+          Ear_1.onload = function () {    
+      (function drawFrame3 () {
+        window.requestAnimationFrame(drawFrame3, canvas);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x3 = 1200;
+        var y3 = 200;
+
+        //context.translate(x3, y3);
+        //dx2 = mouse.x - x2,
+       // dy2 = mouse.y - y2;
+        //var radianes = Math.atan2(dy2, dx2);
+
+       // console.log(radianes);
+       // context.rotate(radianes);
+        context.drawImage(Ear_1, 100, -150, 500, 500);
+        //context.drawImage(Ojos, -Ojos.width/2, -Ojos.height/2);
+        context.restore();
+          
+      }());
+    };
+    
+var Ear_2 = new Image ();
+          Ear_2.src = "Ear_2.png"
+          
+          Ear_2.onload = function () {    
+      (function drawFrame4 () {
+        window.requestAnimationFrame(drawFrame4, canvas);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x4 = 1200;
+        var y4 = 200;
+
+        //context.translate(x3, y3);
+        //dx2 = mouse.x - x2,
+       // dy2 = mouse.y - y2;
+        //var radianes = Math.atan2(dy2, dx2);
+
+       // console.log(radianes);
+       // context.rotate(radianes);
+        context.drawImage(Ear_2, 900, -150, 500, 500);
+        //context.drawImage(Ojos, -Ojos.width/2, -Ojos.height/2);
+        context.restore();
+          
+      }());
+    };
+
+
+    var Nose_1 = new Image ();
+          Nose_1.src = "Nose_1.png"
+          
+          Nose_1.onload = function () {    
+      (function drawFrame5 () {
+        window.requestAnimationFrame(drawFrame5, canvas);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x5 = 1200;
+        var y5 = 200;
+
+        //context.translate(x3, y3);
+        //dx2 = mouse.x - x2,
+       // dy2 = mouse.y - y2;
+        //var radianes = Math.atan2(dy2, dx2);
+
+       // console.log(radianes);
+       // context.rotate(radianes);
+        context.drawImage(Nose_1, 500, 250, 500, 500);
+        //context.drawImage(Ojos, -Ojos.width/2, -Ojos.height/2);
+        context.restore();
+          
+      }());
+    };
+  var Text = new Image ();
+          Text.src = "Text.png"
+          
+          Text.onload = function () {    
+      (function drawFrame6 () {
+        window.requestAnimationFrame(drawFrame6, canvas);
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x6 = 1200;
+        var y6 = 200;
+
+        //context.translate(x3, y3);
+        //dx2 = mouse.x - x2,
+       // dy2 = mouse.y - y2;
+        //var radianes = Math.atan2(dy2, dx2);
+
+       // console.log(radianes);
+       // context.rotate(radianes);
+        context.drawImage(Text, 525, -100, 500, 500);
+        //context.drawImage(Ojos, -Ojos.width/2, -Ojos.height/2);
+        context.restore();
+          
+      }());
+    };
+
+
+
+    };
+    </script>
+  </body>
+</html>
