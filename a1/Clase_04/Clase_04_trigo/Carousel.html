@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wave 1</title>
+    <style> 
+        body{
+      text-align:center;
+      background-color: black;
+        background-size: cover;   
+      background-repeat: no-repeat;
+      
+    }
+    canvas{
+      text-align:center;
+      background-image: url("Carousel_fondo.png");
+       background-size: cover;   
+      background-repeat: no-repeat;
+      
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="1400" height="670"></canvas>
+    
+    <script src="utils.js"></script>
+  
+    <script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var imagen1 = new Image(); //variable para guardar la imagen
+        imagen1.src ="Carousel_fondo.png"; //fuente de donde toma la imagen
+        imagen1.onload = function(){
+        context.drawImage(imagen1, 0, 0, 800, 670);
+        }
+
+      var canvas = document.getElementById('canvas'),
+          //context = canvas.getContext('2d'),
+          horse = new Image(),       
+          angle = 1,
+          centerScale = .35,
+          range = 0.05,
+          escalaX = 1,
+          escalaY = .3,
+          speed = .04,
+          posicionX = 1,
+          posicionY = 3,
+          centerY = 0,
+          rangeY = 100,
+          xspeed = 1,
+          yspeed = 0.05;
+          horse.src = "Carousel_horse.png";
+          
+        
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+        context.translate (50, 50);
+        escalaX = escalaY = centerScale + Math.sin(angle) * range;
+        angle += speed;
+
+        posicionX += xspeed;
+
+        // Movimiento senoidal en Y
+        posicionY = 300 + Math.sin(angle * 2) * 50;
+
+        // Dibujar caballo
+        context.drawImage(horse, posicionX, posicionY, horse.width * escalaX, horse.height * escalaY);
+        context.restore();
+
+        // Reinicio si se va de la pantalla
+       // if (posicionX > canvas.width) {
+        //  posicionX = -horse.width * escalaX;
+       // }
+      }());
+    };
+    </script>
+  </body>
+</html>
