@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fishtank</title>
+    <style> 
+        body{
+      text-align:center;
+      background-color: black;
+        background-size: cover;   
+      background-repeat: no-repeat;
+      
+    }
+    canvas{
+      text-align:center;
+      background-image: url("Fishtank.jpg");
+       background-size: cover;   
+      background-repeat: no-repeat;
+      
+    }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="1400" height="670"></canvas>
+    
+    <script src="utils.js"></script>
+  
+    <script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+
+        var imagen1 = new Image(); //variable para guardar la imagen
+        imagen1.src ="star.png"; //fuente de donde toma la imagen
+        imagen1.onload = function(){
+        context.drawImage(imagen1, 0, 0, 800, 670);
+        }
+
+      var canvas = document.getElementById('canvas'),
+          //context = canvas.getContext('2d'),
+          star = new Image(),       
+          angle = 1,
+          centerScale = .35,
+          range = 0.05,
+          escalaX = 1,
+          escalaY = 1,
+          speed = .04,
+          posicionX = 6,
+          posicionY = 6,
+          centerY = 0,
+          rangeY = 100,
+          xspeed = 3,
+          yspeed = 3;
+          star.src = "star.png";
+          
+        
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+        context.translate (-20, -20);
+        escalaX = escalaY;
+        angle += speed;
+
+        posicionX += xspeed;
+
+        // Movimiento senoidal en Y
+        posicionY = 250 + Math.sin(angle * 2) * 50;
+
+        // Dibujar caballo
+        context.drawImage(star, posicionX, posicionY);
+        context.restore();
+
+        if (posicionY > 670 - 200 || posicionY < 0){
+                yspeed= -yspeed;
+            }
+           posicionY+=yspeed;
+
+            if (posicionX > 1400 - 180 || posicionX < 0){
+                xspeed= -xspeed;
+            }
+           //posicionY+=xspeed;
+
+        // Reinicio si se va de la pantalla
+       // if (posicionX > canvas.width) {
+        //  posicionX = -horse.width * escalaX;
+       // }
+      }());
+    };
+    </script>
+  </body>
+</html>
