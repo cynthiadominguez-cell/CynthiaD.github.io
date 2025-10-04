@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+    window.onload = function () {
+      //Our code here...
+      console.log(0xff55f3);
+      var hex = (16733683).toString(16);
+      console.log(hex);
+      var hexColor= '#' + (16733683).toString(16);
+       console.log(hexColor);
+       var color = window.parseInt(hexColor.slice(1), 16);
+        console.log(color);
+
+        var    r = 0xFF,
+       g = 0x55,
+       b = 0xF3,
+       a = 0.2,
+       color = "rgba("+ r + ", " + g + ", " + b + ", " + a + ")";
+    console.log(color);
+
+    };
+    </script>
+  </body>
+</html>
