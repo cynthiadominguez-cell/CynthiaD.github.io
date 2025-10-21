@@ -1,0 +1,99 @@
+```<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing App</title>
+    <style>
+        body{
+            text-align: center;
+            width: 100%;
+            background-color:darkseagreen;
+        }
+        canvas{
+            background-color: white;
+        }
+        .container{
+            margin: 0px auto;
+            text-align: center;
+            width: 1000px;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            margin: 5px;
+        }
+        button:hover{
+            opacity: 0.5;
+        }
+        #red {
+            background-color:#ff0000;
+            font: 16px impact;
+            color: white;
+        }
+        #green {
+            background-color:green;
+            font: 16px impact;
+            color: white;
+        }
+        #blue {
+            background-color:blue;
+            font: 16px impact;
+            color: white;
+        }
+        #borrar{
+            width: 300px;
+            background-color:black;
+            font: 16px impact;
+            color: white;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <div class="colores">
+            <button id="red" type="button" value="#ff0000">red</button>
+            <button id="green" type="button" value="#00ff00">green</button>
+            <button id="blue" type="button" value="#0000ff">blue</button> 
+            <button id="borrar" type="button">borrar todo</button>
+        </div>
+        <canvas id="canvas" width="900px" height="700px"></canvas>
+        <aside>Click and draw with the mouse.</aside>
+    </div>
+        <script src="utils.js"></script>
+        <script>
+          window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas);
+
+        canvas.addEventListener('mousedown', function () {
+            context.beginPath();
+            context.moveTo(mouse.x, mouse.y);
+            canvas.addEventListener('mousemove', onMouseMove, false);
+        }, false);
+
+        canvas.addEventListener('mouseup', function () {
+            canvas.removeEventListener('mousemove', onMouseMove, false);
+        }, false);
+
+      function onMouseMove () {
+        context.lineTo(mouse.x, mouse.y);
+        context.stroke();
+      }
+
+      var colores = document.getElementsByClassName('colores')[0];
+      colores.addEventListener('click', function(event) {
+        context.strokeStyle = event.target.value;
+      });
+
+      var clearButton = document.getElementById('borrar');
+      clearButton.addEventListener('click', function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+    };
+    </script>
+    
+  </body>
+</html>
