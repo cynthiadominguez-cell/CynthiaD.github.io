@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotational Velocity</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        canvas { 
+           display: block;
+          margin: 0 auto; /* ← centra horizontalmente */
+          background-image: url("Fondo.png");
+          background-repeat: no-repeat;
+            
+        }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+
+    <script src="utils.js"></script>
+    <script src="./classes/arrow.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          ctx2 = canvas.getContext('2d'),
+          ctx3 = canvas.getContext('2d'),
+          ctx4 = canvas.getContext('2d'),
+          //arrow = new Arrow(),
+          vr = .1; //degrees
+          vr2 = .5; //degrees
+          vr3 = .9;
+          vr4 = 0;
+          var hora = new Image();
+          var minuto = new Image();
+          var segundo = new Image();
+          var Punto = new Image();
+          Punto.src = "Punto.png";
+          hora.src = "horas.png";
+          minuto.src = "minuto.png";
+          segundo.src = "segundo.png";
+          var radianes=0;
+          var radianes2=0;
+          var radianes3=0;
+          var radianes4=0;
+
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+        context.translate(400, 400);
+        radianes += vr * Math.PI / 180; //to radians
+        context.rotate(radianes); //radians
+        context.drawImage(hora, -hora.width/2,-hora.height/2);
+        context.restore();
+
+        ctx2.save();
+        ctx2.translate(400, 400);
+        radianes2 += vr2 * Math.PI / 180; //to radians
+        ctx2.rotate(radianes2); //radians
+        ctx2.drawImage(minuto, -minuto.width/2,-minuto.height/2);
+        ctx2.restore();
+
+
+        ctx3.save();
+        ctx3.translate(400, 400);
+        radianes3 += vr3 * Math.PI / 180; //to radians
+        ctx3.rotate(radianes3); //radians
+        ctx3.drawImage(segundo, -segundo.width/2,-segundo.height/2);
+        ctx3.restore();
+
+        ctx4.save();
+        ctx4.translate(395, 395);
+        radianes4 += vr4 * Math.PI / 180; //to radians
+        ctx4.rotate(radianes4); //radians
+        ctx4.drawImage(Punto, -Punto.width/2,-Punto.height/2);
+        ctx4.restore();
+      }());
+    
+    };
+
+
+    </script>
+  </body>
+</html>
